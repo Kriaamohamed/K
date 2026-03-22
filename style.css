@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* يمنع ظهور المربع الرمادي عند اللمس في الايفون */
+}
+
+html {
+    touch-action: manipulation; /* يزيل تأخير الـ 300ms عند النقر في الهاتف */
+}
+
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(-45deg, #0f172a, #581c87, #1e3a8a);
+    background-size: 400% 400%;
+    animation: bg 15s infinite;
+    overflow-x: hidden;
+}
+
+@keyframes bg { 0%{background-position:0%} 50%{background-position:100%} 100%{background-position:0%} }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0; z-index: 100;
+}
+
+.logo { color: #38bdf8; font-family: 'Orbitron'; margin: 0; }
+
+nav button {
+    background: #a855f7;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: #fff;
+    margin: 2px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* تحسين اللمس للأزرار */
+nav button:active, .buy-btn:active, .desc-btn:active, .card:active {
+    transform: scale(0.92);
+    opacity: 0.8;
+}
+
+.page { display: none; padding: 20px; animation: fadeIn 0.4s; }
+.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.hero { padding: 50px 10px; }
+.hero img { width: 100px; filter: drop-shadow(0 0 10px #38bdf8); }
+
+.cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    width: 170px; /* حجم مناسب للهواتف */
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card img { width: 40px; }
+.price { color: #facc15; font-size: 1.3rem; font-weight: bold; }
+
+.btn-group { display: flex; gap: 5px; margin-top: 10px; }
+.buy-btn { background: #22c55e; border: none; padding: 10px; border-radius: 10px; color: white; flex: 2; font-weight: bold; }
+.desc-btn { background: #6366f1; border: none; padding: 10px; border-radius: 10px; color: white; flex: 1; }
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.pulse { animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
